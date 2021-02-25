@@ -1,5 +1,6 @@
 package API;
 
+import model.Client;
 import model.Product;
 import org.json.JSONObject;
 
@@ -16,7 +17,7 @@ public class APICalls {
     final private String APIKEY = "9ddcbc41876c3f1b@m103546";
     final private String BASE_URL = "https://api.megaventory.com/v2017a";
 
-    public void addProducts(Product product) {
+    public void addProduct(Product product) {
 
         String query = "/Product/ProductUpdate";
         try {
@@ -31,6 +32,50 @@ public class APICalls {
 
 //            create POST body
             JSONObject body = product.toJSON();
+            body.put("APIKEY", APIKEY);
+
+//            make body length for POST call
+            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+                wr.write(body.toString().getBytes(StandardCharsets.UTF_8));
+            }
+
+//            HTTP response code
+            int status = conn.getResponseCode();
+
+            System.out.println("Http status code: " + status);
+
+//            API's response data
+            StringBuffer data = readData(conn.getInputStream());
+
+//            close connection
+            conn.disconnect();
+
+            try {
+                JSONObject contentJSON = new JSONObject(data.toString());
+                System.out.println(contentJSON);
+            } catch (Exception e) {
+                System.out.println(data);
+            }
+        } catch (Exception e) {
+            System.err.println("Connection to the API failed successfully!");
+        }
+    }
+
+    public void addClient(Client client) {
+
+        String query = "/SupplierClient/SupplierClientUpdate";
+        try {
+//            make url and headers for HTTP call
+            URL url = new URL(BASE_URL + query);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("charset", "utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+
+//            create POST body
+            JSONObject body = client.toJSON();
             body.put("APIKEY", APIKEY);
 
 //            make body length for POST call

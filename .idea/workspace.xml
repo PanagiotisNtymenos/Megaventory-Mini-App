@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2f97d622-ae0e-4589-85af-bdd61e94db16" name="Default Changelist" comment="init repo.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaventory Mini App/API/APICalls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaventory Mini App/API/APICalls.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaventory Mini App/PseudoFrontend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaventory Mini App/PseudoFrontend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Megaventory Mini App/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Megaventory Mini App/model/Product.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/APICalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/APICalls.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PseudoFrontend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PseudoFrontend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

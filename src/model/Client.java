@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 public class Client {
 
     private String name;
@@ -44,5 +46,26 @@ public class Client {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public JSONObject toJSON() {
+//      creating the json object
+        JSONObject json = new JSONObject();
+
+//        Insert action
+        json.put("mvRecordAction", "Insert");
+
+//        creating the client details
+        JSONObject mvProduct = new JSONObject();
+
+        mvProduct.put("SupplierClientName", this.getName());
+        mvProduct.put("SupplierClientEmail", this.getEmail());
+        mvProduct.put("SupplierClientShippingAddress1", this.getShippingAddress());
+        mvProduct.put("SupplierClientPhone1", this.getPhone());
+
+//        add client details to final json
+        json.put("mvSupplierClient", mvProduct);
+
+        return json;
     }
 }
