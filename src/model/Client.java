@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 public class Client {
 
+    private int id;
     private String name;
     private String email;
     private String shippingAddress;
@@ -14,6 +15,14 @@ public class Client {
         this.email = email;
         this.shippingAddress = shippingAddress;
         this.phone = phone;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -56,15 +65,15 @@ public class Client {
         json.put("mvRecordAction", "Insert");
 
 //        creating the client details
-        JSONObject mvProduct = new JSONObject();
+        JSONObject mvSupplierClient = new JSONObject();
 
-        mvProduct.put("SupplierClientName", this.getName());
-        mvProduct.put("SupplierClientEmail", this.getEmail());
-        mvProduct.put("SupplierClientShippingAddress1", this.getShippingAddress());
-        mvProduct.put("SupplierClientPhone1", this.getPhone());
+        mvSupplierClient.put("SupplierClientName", this.getName());
+        mvSupplierClient.put("SupplierClientEmail", this.getEmail());
+        mvSupplierClient.put("SupplierClientShippingAddress1", this.getShippingAddress());
+        mvSupplierClient.put("SupplierClientPhone1", this.getPhone());
 
 //        add client details to final json
-        json.put("mvSupplierClient", mvProduct);
+        json.put("mvSupplierClient", mvSupplierClient);
 
         return json;
     }

@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 public class Warehouse {
 
+    private int id;
     private String abbreviation;
     private String name;
     private String address;
@@ -12,6 +13,14 @@ public class Warehouse {
         this.abbreviation = abbreviation;
         this.name = name;
         this.address = address;
+    }
+
+    public int getID() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
     }
 
     public String getAbbreviation() {
@@ -46,14 +55,14 @@ public class Warehouse {
         json.put("mvRecordAction", "Insert");
 
 //        creating the warehouse details
-        JSONObject mvProduct = new JSONObject();
+        JSONObject mvInventoryLocation = new JSONObject();
 
-        mvProduct.put("InventoryLocationAbbreviation", this.getAbbreviation());
-        mvProduct.put("InventoryLocationName", this.getName());
-        mvProduct.put("InventoryLocationAddress", this.getAddress());
+        mvInventoryLocation.put("InventoryLocationAbbreviation", this.getAbbreviation());
+        mvInventoryLocation.put("InventoryLocationName", this.getName());
+        mvInventoryLocation.put("InventoryLocationAddress", this.getAddress());
 
 //        add warehouse details to final json
-        json.put("mvInventoryLocation", mvProduct);
+        json.put("mvInventoryLocation", mvInventoryLocation);
 
         return json;
     }

@@ -1,6 +1,7 @@
 import API.APICalls;
 import model.Client;
 import model.Product;
+import model.Tax;
 import model.Warehouse;
 
 public class PseudoFrontend {
@@ -10,13 +11,16 @@ public class PseudoFrontend {
 //        get API Class instance
         APICalls API = new APICalls();
 
-//        3. make product
+//        make tax object
+        Tax tax = new Tax("Default", "The default tax, 24%", 24);
+
+//        3. make product object
         Product product = new Product("1112256", "Nike shoes", 99.99, 44.99);
 
-//        4. make client
+//        4. make client object
         Client client = new Client("babis", "babis@exampletest.com", "Example 8, Athens", "1235698967");
 
-//        5. make warehouse
+//        5. make warehouse object
         Warehouse warehouse = new Warehouse("Main", "Main Location", "Example 20, Athens");
 
 //        add product to API
@@ -27,6 +31,9 @@ public class PseudoFrontend {
 
 //        add client to API
         API.addWarehouse(warehouse);
+
+//        add tax to API
+        API.addTax(tax);
 
     }
 }
