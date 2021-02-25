@@ -30,6 +30,6 @@ You can see the flow of the app below:
 
 ## Reference Project
 
-There'a a simialr project in my CV, a Spring Boot app written mainly in Java, although it's a bit more complicated and well structured than this one. Feel free to visit this [link][1]!
+There'a a similar project in my CV, a Spring Boot app written mainly in Java, although it's a bit more complicated and well structured than this one. It's a web app using an external API and more specific the OMDb API. Feel free to visit this [link][1] and learn more about it!
 
 [1]: https://github.com/PanagiotisNtymenos/OMDb-API-Web-Design "OMDb Spring Boot App"
