@@ -41,7 +41,7 @@ public class APICalls {
 //            HTTP response code
             int status = conn.getResponseCode();
 
-            System.out.println("Http status code: " + status);
+            System.out.println("Product: Http status code: " + status);
 
 //            API's response data
             StringBuffer data = readData(conn.getInputStream());
@@ -52,6 +52,7 @@ public class APICalls {
             try {
                 JSONObject contentJSON = new JSONObject(data.toString());
                 System.out.println(contentJSON);
+                System.out.println();
             } catch (Exception e) {
                 System.out.println(data);
             }
@@ -85,7 +86,7 @@ public class APICalls {
 //            HTTP response code
             int status = conn.getResponseCode();
 
-            System.out.println("Http status code: " + status);
+            System.out.println("Client: Http status code: " + status);
 
 //            API's response data
             StringBuffer data = readData(conn.getInputStream());
@@ -95,9 +96,16 @@ public class APICalls {
 
             try {
                 JSONObject contentJSON = new JSONObject(data.toString());
+//                get client's id from http response
+                try {
+                    client.setID(Integer.parseInt((String) contentJSON.getJSONObject("mvSupplierClient").get("SupplierClientID")));
+                } catch (Exception e) {
+
+                }
                 System.out.println(contentJSON);
+                System.out.println();
             } catch (Exception e) {
-                System.out.println(data);
+                //e.printStackTrace();
             }
         } catch (Exception e) {
             System.err.println("Connection to the API failed successfully!");
@@ -129,7 +137,7 @@ public class APICalls {
 //            HTTP response code
             int status = conn.getResponseCode();
 
-            System.out.println("Http status code: " + status);
+            System.out.println("Warehouse: Http status code: " + status);
 
 //            API's response data
             StringBuffer data = readData(conn.getInputStream());
@@ -139,11 +147,16 @@ public class APICalls {
 
             try {
                 JSONObject contentJSON = new JSONObject(data.toString());
-                int id = Integer.parseInt((String) contentJSON.get("InventoryLocationID"));
+//                get warehouse's id from http response
+                try {
+                    warehouse.setID(Integer.parseInt((String) contentJSON.getJSONObject("mvInventoryLocation").get("InventoryLocationID")));
+                } catch (Exception e) {
+
+                }
+                System.out.println(contentJSON);
                 System.out.println();
-                System.out.println(id);
             } catch (Exception e) {
-//                System.out.println(data);
+//                e.printStackTrace();
             }
         } catch (Exception e) {
             System.err.println("Connection to the API failed successfully!");
@@ -174,7 +187,7 @@ public class APICalls {
 //            HTTP response code
             int status = conn.getResponseCode();
 
-            System.out.println("Http status code: " + status);
+            System.out.println("Tax: Http status code: " + status);
 
 //            API's response data
             StringBuffer data = readData(conn.getInputStream());
@@ -184,9 +197,8 @@ public class APICalls {
 
             try {
                 JSONObject contentJSON = new JSONObject(data.toString());
-
                 System.out.println(contentJSON);
-
+                System.out.println();
             } catch (Exception e) {
 //                System.out.println(data);
             }
@@ -219,7 +231,7 @@ public class APICalls {
 //            HTTP response code
             int status = conn.getResponseCode();
 
-            System.out.println("Http status code: " + status);
+            System.out.println("Discount: Http status code: " + status);
 
 //            API's response data
             StringBuffer data = readData(conn.getInputStream());
@@ -229,9 +241,8 @@ public class APICalls {
 
             try {
                 JSONObject contentJSON = new JSONObject(data.toString());
-
                 System.out.println(contentJSON);
-
+                System.out.println();
             } catch (Exception e) {
 //                System.out.println(data);
             }
