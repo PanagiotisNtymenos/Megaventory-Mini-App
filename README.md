@@ -24,9 +24,11 @@ There's a method called *toJSON* in every Object's calss and it's job is to retu
 
 You can see the flow of the app below: 
 
+## Diagram
+
 ![Flow](Diagrams/Flow.png)
 
-### Reference Project
+## Reference Project
 
 There'a a simialr project in my CV, a Spring Boot app written mainly in Java, although it's a bit more complicated and well structured than this one. Feel free to visit this [link][1]!
 
