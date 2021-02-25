@@ -25,5 +25,8 @@ public class PseudoFrontend {
 //        add client to API
         API.addClient(client);
 
+//        add client to API
+        API.addWarehouse(warehouse);
+
     }
 }
