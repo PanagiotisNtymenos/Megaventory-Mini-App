@@ -1,8 +1,5 @@
 import API.APICalls;
-import model.Client;
-import model.Product;
-import model.Tax;
-import model.Warehouse;
+import model.*;
 
 public class PseudoFrontend {
 
@@ -13,6 +10,9 @@ public class PseudoFrontend {
 
 //        make tax object
         Tax tax = new Tax("Default", "The default tax, 24%", 24);
+
+//        make discount object
+        Discount discount = new Discount("Loyalty", "The Loyalty discount, 50%", 50);
 
 //        3. make product object
         Product product = new Product("1112256", "Nike shoes", 99.99, 44.99);
@@ -34,6 +34,9 @@ public class PseudoFrontend {
 
 //        add tax to API
         API.addTax(tax);
+
+//        add discount to API
+        API.addDiscount(discount);
 
     }
 }

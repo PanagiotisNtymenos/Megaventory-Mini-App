@@ -44,14 +44,14 @@ public class Tax {
 //        Insert action
         json.put("mvRecordAction", "Insert");
 
-//        creating the warehouse details
+//        creating the tax details
         JSONObject mvTax = new JSONObject();
 
         mvTax.put("TaxName", this.getName());
         mvTax.put("TaxDescription", this.getDescription());
         mvTax.put("TaxValue", this.getTaxValue());
 
-//        add warehouse details to final json
+//        add tax details to final json
         json.put("mvTax", mvTax);
 
         return json;

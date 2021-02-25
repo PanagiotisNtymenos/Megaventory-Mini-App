@@ -195,6 +195,51 @@ public class APICalls {
         }
     }
 
+    public void addDiscount(Discount discount) {
+        String query = "/Discount/DiscountUpdate";
+        try {
+//            make url and headers for HTTP call
+            URL url = new URL(BASE_URL + query);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("charset", "utf-8");
+            conn.setRequestProperty("Accept", "application/json");
+
+//            create POST body
+            JSONObject body = discount.toJSON();
+            body.put("APIKEY", APIKEY);
+
+//            make body length for POST call
+            try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+                wr.write(body.toString().getBytes(StandardCharsets.UTF_8));
+            }
+
+//            HTTP response code
+            int status = conn.getResponseCode();
+
+            System.out.println("Http status code: " + status);
+
+//            API's response data
+            StringBuffer data = readData(conn.getInputStream());
+
+//            close connection
+            conn.disconnect();
+
+            try {
+                JSONObject contentJSON = new JSONObject(data.toString());
+
+                System.out.println(contentJSON);
+
+            } catch (Exception e) {
+//                System.out.println(data);
+            }
+        } catch (Exception e) {
+            System.err.println("Connection to the API failed successfully!");
+        }
+    }
+
     public void makeSale(Sale sale) {
 
         String query = "/InventoryLocation/InventoryLocationUpdate";
