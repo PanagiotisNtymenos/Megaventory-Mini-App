@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 public class Client {
 
+    private String type;
     private int id;
     private String name;
     private String email;
@@ -15,6 +16,14 @@ public class Client {
         this.email = email;
         this.shippingAddress = shippingAddress;
         this.phone = phone;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public int getID() {

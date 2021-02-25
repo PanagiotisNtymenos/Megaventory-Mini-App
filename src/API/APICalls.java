@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 
 public class APICalls {
 
-    final private String APIKEY = "891ce16029d7e576@m117861";
+    final private String APIKEY = "";
     final private String BASE_URL = "https://api.megaventory.com/v2017a";
 
     public void addProduct(Product product) {
@@ -253,7 +253,7 @@ public class APICalls {
 
     public void makeSale(Sale sale) {
 
-        String query = "/InventoryLocation/InventoryLocationUpdate";
+        String query = "/SalesOrder/SalesOrderUpdate";
         try {
 //            make url and headers for HTTP call
             URL url = new URL(BASE_URL + query);

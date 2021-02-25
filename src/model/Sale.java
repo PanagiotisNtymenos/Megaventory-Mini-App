@@ -6,25 +6,18 @@ import java.lang.reflect.Array;
 
 public class Sale {
 
+    private int taxID;
+    private int discountID;
     private int clientID;
     private String productSKU;
-    private Warehouse warehouseID;
+    private int warehouseID;
     private String quantity;
-    private double tax = 0.24;
 
-    public Sale(int clientID, String productSKU, Warehouse warehouseID, String quantity) {
+    public Sale(int clientID, String productSKU, int warehouseID, String quantity) {
         this.clientID = clientID;
         this.productSKU = productSKU;
         this.warehouseID = warehouseID;
         this.quantity = quantity;
-    }
-
-    public Sale(int clientID, String productSKU, Warehouse warehouseID, String quantity, double tax) {
-        this.clientID = clientID;
-        this.productSKU = productSKU;
-        this.warehouseID = warehouseID;
-        this.quantity = quantity;
-        this.tax = tax;
     }
 
     public int getClientID() {
@@ -43,11 +36,11 @@ public class Sale {
         this.productSKU = productSKU;
     }
 
-    public Warehouse getWarehouseID() {
+    public int getWarehouseID() {
         return warehouseID;
     }
 
-    public void setWarehouseID(Warehouse warehouseID) {
+    public void setWarehouseID(int warehouseID) {
         this.warehouseID = warehouseID;
     }
 
@@ -59,12 +52,20 @@ public class Sale {
         this.quantity = quantity;
     }
 
-    public double getTax() {
-        return tax;
+    public int getTaxID() {
+        return taxID;
     }
 
-    public void setTax(double tax) {
-        this.tax = tax;
+    public void setTaxID(int taxID) {
+        this.taxID = taxID;
+    }
+
+    public void setDiscountID(int discountID) {
+        this.discountID = discountID;
+    }
+
+    public int getDiscountID() {
+        return discountID;
     }
 
     public JSONObject toJSON() {
@@ -83,6 +84,8 @@ public class Sale {
         SalesOrderDetails.put("SalesOrderRowProductSKU", this.getProductSKU());
         SalesOrderDetails.put("SalesOrderRowQuantity", this.getQuantity());
         SalesOrderDetails.put("SalesOrderInventoryLocationID", this.getWarehouseID());
+        SalesOrderDetails.put("SalesOrderRowTaxID", this.getTaxID());
+        SalesOrderDetails.put("SalesOrderRowDiscountID", this.getDiscountID());
 
 //        create array of json objects
         JSONObject[] jsonArray = new JSONObject[1];
@@ -96,4 +99,5 @@ public class Sale {
 
         return json;
     }
+
 }

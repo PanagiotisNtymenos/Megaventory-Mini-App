@@ -21,7 +21,12 @@ public class PseudoFrontend {
         Client client = new Client("babis", "babis@exampletest.com", "Example 8, Athens", "1235698967");
 
 //        5. make warehouse object
-        Warehouse warehouse = new Warehouse("Main", "Main Location", "Example 20, Athens");
+        Warehouse warehouse = new Warehouse("Main2", "Main Location 2", "Example 20, Athens");
+
+//        7. make warehouse object
+        Sale sale = new Sale(24, "1112256", 4, "2");
+        sale.setTaxID(1);
+        sale.setDiscountID(2);
 
 //        add product to API
         API.addProduct(product);
@@ -38,5 +43,11 @@ public class PseudoFrontend {
 //        add discount to API
         API.addDiscount(discount);
 
+//        add sales to API
+        API.addDiscount(discount);
+
+//        make a sale
+        API.makeSale(sale);
+        
     }
 }
